@@ -18,7 +18,7 @@ import unittest
 
 from ruamel.yaml import YAML
 
-from dbt_migration_toolkit.config import IndentConfig, YamlConfig
+from dbt_migration_toolkit.config import Config, IndentConfig
 
 
 class TestConfig(unittest.TestCase):
@@ -44,7 +44,7 @@ class TestConfig(unittest.TestCase):
         os.remove(self.temp_file.name)
 
     def test_load(self):
-        config = YamlConfig.load(self.temp_file.name)
+        config = Config.load(self.temp_file.name)
         self.assertTrue(config.explicit_start)
         self.assertTrue(config.explicit_end)
         self.assertTrue(config.preserve_quotes)
@@ -54,7 +54,7 @@ class TestConfig(unittest.TestCase):
         self.assertEqual(config.indent.mapping, 4)
 
     def test_to_ruamel_yaml(self):
-        config = YamlConfig.load(self.temp_file.name)
+        config = Config.load(self.temp_file.name)
         yaml = config.to_ruamel_yaml()
         self.assertEqual(yaml.explicit_start, config.explicit_start)
         self.assertEqual(yaml.explicit_end, config.explicit_end)
