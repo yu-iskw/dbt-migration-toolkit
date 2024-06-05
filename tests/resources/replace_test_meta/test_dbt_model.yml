@@ -1,0 +1,30 @@
+models:
+  - name: my_first_model
+    description: This is my first dbt model
+    # comment
+    columns:
+      - name: id
+        description: The primary key for this table
+        # comment
+        tests:
+          # comment
+          - unique
+          - not_null
+      - name: name
+        description: The name of the entity
+        tests:
+          - not_null
+      - name: created_at
+        description: The timestamp when the entity was created
+        tests:
+          - not_null
+          - timestamp
+    tests:
+      # comment
+      - dbt_utils.unique_combination_of_columns:
+          # comment
+          combination_of_columns:
+            # comment
+            - name
+            - created_at
+    # comment

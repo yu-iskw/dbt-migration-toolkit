@@ -1,0 +1,8 @@
+explicit_start: false
+explicit_end: false
+preserve_quotes: true
+width: 4096
+indent:
+  offset: 2
+  sequence: 4
+  mapping: 2

@@ -1,0 +1,28 @@
+sources:
+  - name: my_source
+    description: This is a sample dbt source
+    tables:
+      - name: my_table
+        description: This is a sample table in the source
+        columns:
+          - name: id
+            description: The primary key for this table
+            # comment
+            tests:
+              # comment
+              - unique
+              - not_null
+          - name: name
+            description: The name of the entity
+            tests:
+              - not_null
+          - name: created_at
+            description: The timestamp when the entity was created
+            tests:
+              - not_null
+              - timestamp
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - id
+                - name
