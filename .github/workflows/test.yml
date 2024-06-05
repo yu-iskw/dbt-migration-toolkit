@@ -24,7 +24,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install -U pip==24.1
+          python -m pip install -U pip==24.0
           python -m pip install -e .[dev]
       - name: Run tests
         run: |
