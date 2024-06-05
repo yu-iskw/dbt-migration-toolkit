@@ -31,7 +31,7 @@ setup(
     extras_require={
         "dev": [
             "pytest>=7.0.0,<8.0.0",
-            "pre-commit>=3.7,<4.0",
+            "pre-commit>=3.0,<4.0",
         ]
     },
     entry_points={
